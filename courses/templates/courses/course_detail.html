@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<p>
+    <a href="../">Go Back</a>
+    <a href="/courses/{{ object.id }}/edit/">Edit Course</a>
+    <a href="/courses/{{ object.id }}/delete/">Delete Course</a>
+</p>
+
+{% if object != null %}
+<h1>{{ object.title }}</h1>
+<p>
+    {% if object.description != "" %}
+        {{ object.description }}
+    {% else %}
+        Description Coming Soon
+    {% endif %}
+</p>
+<p>
+    {% if object.resources != "" %}
+        {{ object.resources }}
+    {% else %}
+        Resources Coming Soon
+    {% endif %}
+</p>
+{% else %}
+<h1>No courses have been uploaded</h1>
+{% endif %}
+
+{% endblock %}}
